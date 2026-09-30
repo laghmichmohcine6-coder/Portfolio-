@@ -295,6 +295,13 @@ nav.scrolled{height:46px;box-shadow:var(--shadow2)}
 .cv-btn:hover{opacity:.85;transform:translateY(-1px)}
 .cv-btn svg{width:12px;height:12px}
 
+/* ── LANGUAGE SWITCHER ── */
+.lang-switch{display:inline-flex;align-items:center;gap:2px;background:var(--bg2);border:1px solid var(--border2);border-radius:8px;padding:3px;flex-shrink:0}
+.lang-btn{padding:3px 9px;border-radius:5px;font-size:11px;font-weight:600;color:var(--text3);border:none;cursor:pointer;background:transparent;font-family:'DM Mono',monospace;letter-spacing:.02em;transition:all .2s;line-height:1.5;touch-action:manipulation}
+.lang-btn.active{background:var(--bg);color:var(--text);box-shadow:0 1px 3px rgba(0,0,0,.10)}
+.lang-btn:hover:not(.active){color:var(--text)}
+.mob-nav-lang{display:flex;justify-content:center;padding:12px 16px 4px}
+
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
    LAYOUT
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
@@ -1315,11 +1322,11 @@ footer{
     <span class="nav-brand-name">Mohcine Laghmich</span>
   </a>
   <div class="nav-links" id="navlinks">
-    <a href="#about" class="nl">About</a>
-    <a href="#skills" class="nl">Skills</a>
-    <a href="#projects" class="nl">Projects</a>
-    <a href="#experience" class="nl">Experience</a>
-    <a href="#contact" class="nl">Contact</a>
+    <a href="#about" class="nl" data-i18n="nav.about">About</a>
+    <a href="#skills" class="nl" data-i18n="nav.skills">Skills</a>
+    <a href="#projects" class="nl" data-i18n="nav.projects">Projects</a>
+    <a href="#experience" class="nl" data-i18n="nav.experience">Experience</a>
+    <a href="#contact" class="nl" data-i18n="nav.contact">Contact</a>
   </div>
   <div class="nav-right">
     <a href="cv.pdf" download="Mohcine_Laghmich_CV.pdf" class="cv-btn" id="cvbtn" aria-label="Download CV">
@@ -1328,8 +1335,12 @@ footer{
         <polyline points="7 10 12 15 17 10"/>
         <line x1="12" y1="15" x2="12" y2="3"/>
       </svg>
-      Download CV
+      <span data-i18n="nav.cvBtn">Download CV</span>
     </a>
+    <div class="lang-switch" id="langSwitch" role="group" aria-label="Language">
+      <button class="lang-btn active" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="fr">FR</button>
+    </div>
     <button class="mob-menu-btn" id="mobMenuBtn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobNav">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
         <line x1="3" y1="7" x2="21" y2="7"/>
@@ -1347,11 +1358,11 @@ footer{
       <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
     </svg>
   </button>
-  <a href="#about" class="mob-nav-link">About</a>
-  <a href="#skills" class="mob-nav-link">Skills</a>
-  <a href="#projects" class="mob-nav-link">Projects</a>
-  <a href="#experience" class="mob-nav-link">Experience</a>
-  <a href="#contact" class="mob-nav-link">Contact</a>
+  <a href="#about" class="mob-nav-link" data-i18n="nav.about">About</a>
+  <a href="#skills" class="mob-nav-link" data-i18n="nav.skills">Skills</a>
+  <a href="#projects" class="mob-nav-link" data-i18n="nav.projects">Projects</a>
+  <a href="#experience" class="mob-nav-link" data-i18n="nav.experience">Experience</a>
+  <a href="#contact" class="mob-nav-link" data-i18n="nav.contact">Contact</a>
   <div class="mob-nav-divider"></div>
   <a href="cv.pdf" download="Mohcine_Laghmich_CV.pdf" class="mob-nav-cv">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
@@ -1359,8 +1370,14 @@ footer{
       <polyline points="7 10 12 15 17 10"/>
       <line x1="12" y1="15" x2="12" y2="3"/>
     </svg>
-    Download CV
+    <span data-i18n="nav.cvBtn">Download CV</span>
   </a>
+  <div class="mob-nav-lang">
+    <div class="lang-switch" role="group" aria-label="Language">
+      <button class="lang-btn active" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="fr">FR</button>
+    </div>
+  </div>
 </div>
 
 <!-- ══════ HERO ══════ -->
@@ -1372,29 +1389,29 @@ footer{
     <div>
       <div class="h-badge">
         <span class="badge-pulse"></span>
-        Open to opportunities &nbsp;&middot;&nbsp; Tangier, Morocco
+        <span data-i18n="hero.badge">Open to opportunities &nbsp;&middot;&nbsp; Tangier, Morocco</span>
       </div>
-      <h1 class="h-title">
+      <h1 class="h-title" data-i18n="hero.title">
         Building modern<br>
         web &amp; <span class="h-title-light">mobile</span><br>
         experiences.
       </h1>
       <div class="h-type">
-        <span class="type-pfx">I'm a</span>
+        <span class="type-pfx" data-i18n="hero.prefix">I'm a</span>
         <span id="typer"></span><span class="tcur" aria-hidden="true"></span>
       </div>
-      <p class="h-sub">Based in Tangier — I design and build digital products that feel fast, clean, and real. From React frontends to solid PHP &amp; MySQL backends.</p>
+      <p class="h-sub" data-i18n="hero.sub">Based in Tangier — I design and build digital products that feel fast, clean, and real. From React frontends to solid PHP &amp; MySQL backends.</p>
       <div class="h-btns">
         <a href="#projects" class="btn-black">
-          View projects
+          <span data-i18n="hero.viewProjects">View projects</span>
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
         </a>
-        <a href="#contact" class="btn-ghost">Get in touch</a>
+        <a href="#contact" class="btn-ghost" data-i18n="hero.getInTouch">Get in touch</a>
       </div>
       <div class="h-stats">
-        <div><div class="stn"><span data-cnt="5">0</span><sup>+</sup></div><div class="stl">Projects</div></div>
-        <div><div class="stn"><span data-cnt="4">0</span></div><div class="stl">Languages</div></div>
-        <div><div class="stn"><span data-cnt="2">0</span><sup>yr</sup></div><div class="stl">Building</div></div>
+        <div><div class="stn"><span data-cnt="5">0</span><sup>+</sup></div><div class="stl" data-i18n="hero.statProjects">Projects</div></div>
+        <div><div class="stn"><span data-cnt="4">0</span></div><div class="stl" data-i18n="hero.statLanguages">Languages</div></div>
+        <div><div class="stn"><span data-cnt="2">0</span><sup>yr</sup></div><div class="stl" data-i18n="hero.statBuilding">Building</div></div>
       </div>
     </div>
     <!-- Right — photo -->
@@ -1413,7 +1430,7 @@ footer{
         <div class="flabel hi fl4" aria-hidden="true">Full Stack</div>
         <div class="flabel fl5" aria-hidden="true">Git · Linux</div>
         <div class="photo-clk" aria-label="Local time in Tangier">
-          <div class="clk-city">🇲🇦 Tangier — GMT+1</div>
+          <div class="clk-city" data-i18n="hero.city">🇲🇦 Tangier — GMT+1</div>
           <div id="clk">--:--:--</div>
         </div>
       </div>
@@ -1425,13 +1442,13 @@ footer{
 
 <!-- ══════ ABOUT ══════ -->
 <section id="about">
-  <div class="s-tag rv">About me</div>
+  <div class="s-tag rv" data-i18n="about.tag">About me</div>
   <div class="about-grid">
     <div class="rv d1">
-      <h2 class="about-h2">A developer who<br>ships real things.</h2>
-      <p class="about-p">I'm Mohcine, 21, studying Software Development at Institut CIEL in Tangier. Since 2023 I've been building web and mobile apps — not just to learn, but to <strong>solve real problems</strong>.</p>
-      <p class="about-p">Comfortable across the full stack. I can design a clean React interface, wire it to a PHP &amp; MySQL backend, and ship it live. I like projects where the product actually matters.</p>
-      <p class="about-p">Looking for an internship in Morocco where I can join a real team, contribute meaningfully, and keep growing fast.</p>
+      <h2 class="about-h2" data-i18n="about.heading">A developer who<br>ships real things.</h2>
+      <p class="about-p" data-i18n="about.p1">I'm Mohcine, 21, studying Software Development at Institut CIEL in Tangier. Since 2023 I've been building web and mobile apps — not just to learn, but to <strong>solve real problems</strong>.</p>
+      <p class="about-p" data-i18n="about.p2">Comfortable across the full stack. I can design a clean React interface, wire it to a PHP &amp; MySQL backend, and ship it live. I like projects where the product actually matters.</p>
+      <p class="about-p" data-i18n="about.p3">Looking for an internship in Morocco where I can join a real team, contribute meaningfully, and keep growing fast.</p>
       <div class="lpills">
         <span class="lpill">🇬🇧 English</span>
         <span class="lpill">🇫🇷 Français</span>
@@ -1440,10 +1457,10 @@ footer{
       </div>
     </div>
     <div class="about-cards rv d2">
-      <div class="acard"><div class="acard-t">Fast learner</div><div class="acard-d">Picked up React Native, Android, and MongoDB on top of my core stack. New tech doesn't slow me down.</div></div>
-      <div class="acard"><div class="acard-t">Full-stack mindset</div><div class="acard-d">Frontend, backend, database — I think about the whole system. Clean APIs matter as much as clean UI.</div></div>
-      <div class="acard"><div class="acard-t">Ships to production</div><div class="acard-d">All my projects are live and deployed — auth systems, admin dashboards, QR integrations, and collaborative platforms.</div></div>
-      <div class="acard"><div class="acard-t">Team-ready</div><div class="acard-d">Comfortable with Git workflows and collaborative development. I've shipped projects alongside other developers.</div></div>
+      <div class="acard"><div class="acard-t" data-i18n="about.card1t">Fast learner</div><div class="acard-d" data-i18n="about.card1d">Picked up React Native, Android, and MongoDB on top of my core stack. New tech doesn't slow me down.</div></div>
+      <div class="acard"><div class="acard-t" data-i18n="about.card2t">Full-stack mindset</div><div class="acard-d" data-i18n="about.card2d">Frontend, backend, database — I think about the whole system. Clean APIs matter as much as clean UI.</div></div>
+      <div class="acard"><div class="acard-t" data-i18n="about.card3t">Ships to production</div><div class="acard-d" data-i18n="about.card3d">All my projects are live and deployed — auth systems, admin dashboards, QR integrations, and collaborative platforms.</div></div>
+      <div class="acard"><div class="acard-t" data-i18n="about.card4t">Team-ready</div><div class="acard-d" data-i18n="about.card4d">Comfortable with Git workflows and collaborative development. I've shipped projects alongside other developers.</div></div>
     </div>
   </div>
 </section>
@@ -1453,8 +1470,8 @@ footer{
 <!-- ══════ SKILLS ══════ -->
 <section id="skills">
   <div class="sk-hdr rv">
-    <div class="s-tag" style="justify-content:center">Technical Skills</div>
-    <h2>What I build with</h2>
+    <div class="s-tag" style="justify-content:center" data-i18n="skills.tag">Technical Skills</div>
+    <h2 data-i18n="skills.heading">What I build with</h2>
   </div>
   <div class="sk-grid" id="skgrid"></div>
 </section>
@@ -1464,8 +1481,8 @@ footer{
 <!-- ══════ PROJECTS ══════ -->
 <section id="projects">
   <div class="proj-hdr rv">
-    <div class="s-tag" style="justify-content:center">Featured Projects</div>
-    <h2>Things I've shipped</h2>
+    <div class="s-tag" style="justify-content:center" data-i18n="projects.tag">Featured Projects</div>
+    <h2 data-i18n="projects.heading">Things I've shipped</h2>
   </div>
   <div class="pg" id="pgrid"></div>
 </section>
@@ -1483,9 +1500,9 @@ footer{
     </div>
     <div class="mprev" id="mprev"></div>
     <div class="mbody">
-      <div class="mbody-s">About this project</div>
+      <div class="mbody-s" data-i18n="projects.modalAbout">About this project</div>
       <p class="mdesc" id="mdesc"></p>
-      <div class="mbody-s">Tech Stack</div>
+      <div class="mbody-s" data-i18n="projects.modalStack">Tech Stack</div>
       <div class="mtags" id="mtags"></div>
       <div class="macts" style="margin-top:16px" id="macts"></div>
     </div>
@@ -1496,20 +1513,20 @@ footer{
 
 <!-- ══════ EXPERIENCE ══════ -->
 <section id="experience">
-  <div class="s-tag rv">Experience</div>
-  <h2 class="rv d1" style="font-family:'Cabinet Grotesk',sans-serif;font-size:clamp(26px,3.2vw,40px);font-weight:800;letter-spacing:-.03em;margin-top:8px">What I've built</h2>
+  <div class="s-tag rv" data-i18n="experience.tag">Experience</div>
+  <h2 class="rv d1" style="font-family:'Cabinet Grotesk',sans-serif;font-size:clamp(26px,3.2vw,40px);font-weight:800;letter-spacing:-.03em;margin-top:8px" data-i18n="experience.heading">What I've built</h2>
   <div class="tl rv d2">
     <div class="tl-item">
-      <div class="tl-date">2023 — Present</div>
-      <div class="tl-t">Personal &amp; Academic Projects</div>
-      <div class="tl-s">Self-directed · Tangier, Morocco</div>
+      <div class="tl-date" data-i18n="experience.date">2023 — Present</div>
+      <div class="tl-t" data-i18n="experience.title">Personal &amp; Academic Projects</div>
+      <div class="tl-s" data-i18n="experience.sub">Self-directed · Tangier, Morocco</div>
       <ul class="tl-list">
-        <li>Built and deployed 5+ web and mobile projects across the full stack</li>
-        <li>Designed responsive interfaces optimized for desktop and mobile</li>
-        <li>Built secure authentication with OTP, PIN codes, and QR code systems</li>
-        <li>Created admin dashboards for user management and analytics</li>
-        <li>Collaborated on team projects using Git version control</li>
-        <li>Integrated PHP and MySQL backends powering dynamic frontends</li>
+        <li data-i18n="experience.li1">Built and deployed 5+ web and mobile projects across the full stack</li>
+        <li data-i18n="experience.li2">Designed responsive interfaces optimized for desktop and mobile</li>
+        <li data-i18n="experience.li3">Built secure authentication with OTP, PIN codes, and QR code systems</li>
+        <li data-i18n="experience.li4">Created admin dashboards for user management and analytics</li>
+        <li data-i18n="experience.li5">Collaborated on team projects using Git version control</li>
+        <li data-i18n="experience.li6">Integrated PHP and MySQL backends powering dynamic frontends</li>
       </ul>
     </div>
   </div>
@@ -1519,12 +1536,12 @@ footer{
 
 <!-- ══════ EDUCATION ══════ -->
 <section id="education">
-  <div class="s-tag rv">Education</div>
-  <h2 class="rv d1" style="font-family:'Cabinet Grotesk',sans-serif;font-size:clamp(26px,3.2vw,40px);font-weight:800;letter-spacing:-.03em;margin-top:8px">Background &amp; training</h2>
+  <div class="s-tag rv" data-i18n="education.tag">Education</div>
+  <h2 class="rv d1" style="font-family:'Cabinet Grotesk',sans-serif;font-size:clamp(26px,3.2vw,40px);font-weight:800;letter-spacing:-.03em;margin-top:8px" data-i18n="education.heading">Background &amp; training</h2>
   <div class="edu-grid">
-    <div class="ecard rv"><div class="ecard-yr">2024 — 2026</div><div class="ecard-t">Specialized Technician in Software Development</div><div class="ecard-s">Institut CIEL · Tangier, Morocco</div></div>
-    <div class="ecard rv d1"><div class="ecard-yr">2023</div><div class="ecard-t">TR-YÖS University Entrance Exam Certificate</div><div class="ecard-s">Türkiye</div></div>
-    <div class="ecard rv d2"><div class="ecard-yr">2022</div><div class="ecard-t">Baccalaureate in Physical Sciences</div><div class="ecard-s">Lycée Ibn Zohr · Tangier, Morocco</div></div>
+    <div class="ecard rv"><div class="ecard-yr">2024 — 2026</div><div class="ecard-t" data-i18n="education.e1t">Specialized Technician in Software Development</div><div class="ecard-s" data-i18n="education.e1s">Institut CIEL · Tangier, Morocco</div></div>
+    <div class="ecard rv d1"><div class="ecard-yr">2023</div><div class="ecard-t" data-i18n="education.e2t">TR-YÖS University Entrance Exam Certificate</div><div class="ecard-s" data-i18n="education.e2s">Türkiye</div></div>
+    <div class="ecard rv d2"><div class="ecard-yr">2022</div><div class="ecard-t" data-i18n="education.e3t">Baccalaureate in Physical Sciences</div><div class="ecard-s" data-i18n="education.e3s">Lycée Ibn Zohr · Tangier, Morocco</div></div>
   </div>
 </section>
 
@@ -1533,9 +1550,9 @@ footer{
 <!-- ══════ CONTACT ══════ -->
 <section id="contact">
   <div class="contact-inner">
-    <div class="s-tag rv" style="justify-content:center">Contact</div>
-    <h2 class="contact-h2 rv d1">Let's work together</h2>
-    <p class="contact-sub rv d2">Looking for internship opportunities in Morocco. If you need a developer who hits the ground running — let's talk.</p>
+    <div class="s-tag rv" style="justify-content:center" data-i18n="contact.tag">Contact</div>
+    <h2 class="contact-h2 rv d1" data-i18n="contact.heading">Let's work together</h2>
+    <p class="contact-sub rv d2" data-i18n="contact.sub">Looking for internship opportunities in Morocco. If you need a developer who hits the ground running — let's talk.</p>
     <div class="clinks rv d2">
       <a href="https://linkedin.com/in/mohcine-laghmich" target="_blank" rel="noopener" class="clink">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
@@ -1553,37 +1570,37 @@ footer{
 
     <!-- CONTACT FORM — EmailJS integrated -->
     <div class="cform-wrap rv d3">
-      <div class="cform-t">Send a message</div>
-      <div class="cform-sub">Usually replies within 24 hours · Secure &amp; private</div>
+      <div class="cform-t" data-i18n="contact.formTitle">Send a message</div>
+      <div class="cform-sub" data-i18n="contact.formSub">Usually replies within 24 hours · Secure &amp; private</div>
       <form id="cform" novalidate autocomplete="off">
         <!-- Honeypot -->
         <input type="text" name="h_pot" class="fhoney" tabindex="-1" autocomplete="off">
         <div class="form-grid">
           <div class="fg">
-            <label class="fl" for="fn">Name</label>
-            <input type="text" id="fn" name="from_name" class="fi" placeholder="Your full name" required minlength="2" maxlength="80" autocomplete="name">
+            <label class="fl" for="fn" data-i18n="contact.labelName">Name</label>
+            <input type="text" id="fn" name="from_name" class="fi" placeholder="Your full name" data-i18n-ph="contact.phName" required minlength="2" maxlength="80" autocomplete="name">
           </div>
           <div class="fg">
-            <label class="fl" for="fe">Email</label>
+            <label class="fl" for="fe" data-i18n="contact.labelEmail">Email</label>
             <input type="email" id="fe" name="from_email" class="fi" placeholder="your@email.com" required maxlength="120" autocomplete="email">
           </div>
           <div class="fg ff">
-            <label class="fl" for="fs">Subject</label>
-            <input type="text" id="fs" name="subject" class="fi" placeholder="What's this about?" required minlength="3" maxlength="150">
+            <label class="fl" for="fs" data-i18n="contact.labelSubject">Subject</label>
+            <input type="text" id="fs" name="subject" class="fi" placeholder="What's this about?" data-i18n-ph="contact.phSubject" required minlength="3" maxlength="150">
           </div>
           <div class="fg ff">
-            <label class="fl" for="fm">Message</label>
-            <textarea id="fm" name="message" class="fta" placeholder="Tell me about your project or opportunity..." required minlength="10" maxlength="2000"></textarea>
+            <label class="fl" for="fm" data-i18n="contact.labelMessage">Message</label>
+            <textarea id="fm" name="message" class="fta" placeholder="Tell me about your project or opportunity..." data-i18n-ph="contact.phMessage" required minlength="10" maxlength="2000"></textarea>
           </div>
         </div>
         <div class="ffoot">
-          <span class="fnote">Your message goes directly to my inbox</span>
+          <span class="fnote" data-i18n="contact.fnote">Your message goes directly to my inbox</span>
           <button type="submit" class="btn-send" id="sbtn">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" id="sico">
               <line x1="22" y1="2" x2="11" y2="13"/>
               <polygon points="22 2 15 22 11 13 2 9 22 2"/>
             </svg>
-            Send message
+            <span data-i18n="contact.sendBtn">Send message</span>
           </button>
         </div>
       </form>
@@ -1596,12 +1613,171 @@ footer{
     <img class="foot-logo" src="data:image/png;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAQABgADASIAAhEBAxEB/8QAHAABAAIDAQEBAAAAAAAAAAAAAAYHBAUIAwIB/8QATxABAAIBAgQDBQQGBQYMBgMAAAECAwQRBQYSITFBUQcTImFxFDKBkRUjQqGxwVJygtHwCDQ2YnTxFiQzQ1Rzg5KTosLSJlNVsrPhY4Sj/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/xAAWEQEBAQAAAAAAAAAAAAAAAAAAEQH/2gAMAwEAAhEDEQA/AOMgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA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AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//Z" alt="ML">
     <span>&copy; 2026 Mohcine Laghmich</span>
   </div>
-  <span>Tangier, Morocco &middot; Full Stack Developer</span>
+  <span data-i18n="footer.sub">Tangier, Morocco &middot; Full Stack Developer</span>
 </footer>
 
 <script>
 (function() {
 'use strict';
+
+/* ─── TRANSLATIONS ─── */
+const translations = {
+  en: {
+    nav: { about:"About", skills:"Skills", projects:"Projects", experience:"Experience", contact:"Contact", cvBtn:"Download CV" },
+    hero: {
+      badge:"Open to opportunities &nbsp;&middot;&nbsp; Tangier, Morocco",
+      title:"Building modern<br>web &amp; <span class='h-title-light'>mobile</span><br>experiences.",
+      prefix:"I'm a",
+      sub:"Based in Tangier — I design and build digital products that feel fast, clean, and real. From React frontends to solid PHP &amp; MySQL backends.",
+      viewProjects:"View projects", getInTouch:"Get in touch",
+      statProjects:"Projects", statLanguages:"Languages", statBuilding:"Building",
+      city:"🇲🇦 Tangier — GMT+1",
+      words:["Full Stack Developer","React Native Developer","PHP & MySQL Developer","Building real products"]
+    },
+    about: {
+      tag:"About me",
+      heading:"A developer who<br>ships real things.",
+      p1:"I'm Mohcine, 21, studying Software Development at Institut CIEL in Tangier. Since 2023 I've been building web and mobile apps — not just to learn, but to <strong>solve real problems</strong>.",
+      p2:"Comfortable across the full stack. I can design a clean React interface, wire it to a PHP &amp; MySQL backend, and ship it live. I like projects where the product actually matters.",
+      p3:"Looking for an internship in Morocco where I can join a real team, contribute meaningfully, and keep growing fast.",
+      card1t:"Fast learner", card1d:"Picked up React Native, Android, and MongoDB on top of my core stack. New tech doesn't slow me down.",
+      card2t:"Full-stack mindset", card2d:"Frontend, backend, database — I think about the whole system. Clean APIs matter as much as clean UI.",
+      card3t:"Ships to production", card3d:"All my projects are live and deployed — auth systems, admin dashboards, QR integrations, and collaborative platforms.",
+      card4t:"Team-ready", card4d:"Comfortable with Git workflows and collaborative development. I've shipped projects alongside other developers."
+    },
+    skills: {
+      tag:"Technical Skills", heading:"What I build with",
+      cats:{"Frontend":"Frontend","Language":"Language","Backend":"Backend","Database":"Database","Mobile":"Mobile","Tool":"Tool","Backend Framework":"Backend Framework"}
+    },
+    projects: {
+      tag:"Featured Projects", heading:"Things I've shipped",
+      modalAbout:"About this project", modalStack:"Tech Stack", liveDemo:"Live demo"
+    },
+    experience: {
+      tag:"Experience", heading:"What I've built",
+      date:"2023 — Present", title:"Personal &amp; Academic Projects", sub:"Self-directed · Tangier, Morocco",
+      li1:"Built and deployed 5+ web and mobile projects across the full stack",
+      li2:"Designed responsive interfaces optimized for desktop and mobile",
+      li3:"Built secure authentication with OTP, PIN codes, and QR code systems",
+      li4:"Created admin dashboards for user management and analytics",
+      li5:"Collaborated on team projects using Git version control",
+      li6:"Integrated PHP and MySQL backends powering dynamic frontends"
+    },
+    education: {
+      tag:"Education", heading:"Background &amp; training",
+      e1t:"Specialized Technician in Software Development", e1s:"Institut CIEL · Tangier, Morocco",
+      e2t:"TR-YÖS University Entrance Exam Certificate", e2s:"Türkiye",
+      e3t:"Baccalaureate in Physical Sciences", e3s:"Lycée Ibn Zohr · Tangier, Morocco"
+    },
+    contact: {
+      tag:"Contact", heading:"Let's work together",
+      sub:"Looking for internship opportunities in Morocco. If you need a developer who hits the ground running — let's talk.",
+      formTitle:"Send a message", formSub:"Usually replies within 24 hours · Secure &amp; private",
+      labelName:"Name", labelEmail:"Email", labelSubject:"Subject", labelMessage:"Message",
+      phName:"Your full name", phSubject:"What's this about?", phMessage:"Tell me about your project or opportunity...",
+      fnote:"Your message goes directly to my inbox", sendBtn:"Send message",
+      toastDownload:"Downloading CV…", toastSent:"Message sent — I'll reply within 24h ✓", toastSendFail:"Could not send — please try emailing directly",
+      toastWait:"Please wait a moment before sending again",
+      errName:"Please enter your name", errEmail:"Please enter a valid email", errSubject:"Please add a subject", errMsg:"Message too short — say more!"
+    },
+    footer: { sub:"Tangier, Morocco &middot; Full Stack Developer" }
+  },
+  fr: {
+    nav: { about:"À propos", skills:"Compétences", projects:"Projets", experience:"Expérience", contact:"Contact", cvBtn:"Télécharger CV" },
+    hero: {
+      badge:"Disponible &nbsp;&middot;&nbsp; Tanger, Maroc",
+      title:"Créer des expériences<br>web &amp; <span class='h-title-light'>mobile</span><br>modernes.",
+      prefix:"Je suis",
+      sub:"Basé à Tanger — je conçois et développe des produits numériques rapides, soignés et concrets. Des interfaces React aux backends PHP &amp; MySQL solides.",
+      viewProjects:"Voir les projets", getInTouch:"Me contacter",
+      statProjects:"Projets", statLanguages:"Langages", statBuilding:"Expérience",
+      city:"🇲🇦 Tanger — GMT+1",
+      words:["Développeur Full Stack","Développeur React Native","Développeur PHP & MySQL","Je crée des produits réels"]
+    },
+    about: {
+      tag:"À propos",
+      heading:"Un développeur qui<br>livre de vrais projets.",
+      p1:"Je m'appelle Mohcine, 21 ans, étudiant en Développement Logiciel à l'Institut CIEL de Tanger. Depuis 2023, je construis des applications web et mobiles — pas seulement pour apprendre, mais pour <strong>résoudre de vrais problèmes</strong>.",
+      p2:"À l'aise sur toute la stack. Je peux concevoir une interface React propre, la connecter à un backend PHP &amp; MySQL, et la déployer en production. J'aime les projets où le produit compte vraiment.",
+      p3:"À la recherche d'un stage au Maroc pour rejoindre une vraie équipe, contribuer concrètement et progresser rapidement.",
+      card1t:"Apprentissage rapide", card1d:"J'ai intégré React Native, Android et MongoDB en plus de ma stack principale. Les nouvelles technologies ne me freinent pas.",
+      card2t:"Vision full-stack", card2d:"Frontend, backend, base de données — je pense à l'ensemble du système. Des APIs propres comptent autant qu'une UI soignée.",
+      card3t:"Livraison en production", card3d:"Tous mes projets sont en ligne et déployés — systèmes d'auth, tableaux de bord admin, intégrations QR et plateformes collaboratives.",
+      card4t:"Esprit d'équipe", card4d:"À l'aise avec les workflows Git et le développement collaboratif. J'ai livré des projets aux côtés d'autres développeurs."
+    },
+    skills: {
+      tag:"Compétences techniques", heading:"Mes outils",
+      cats:{"Frontend":"Frontend","Language":"Langage","Backend":"Backend","Database":"Base de données","Mobile":"Mobile","Tool":"Outil","Backend Framework":"Framework Backend"}
+    },
+    projects: {
+      tag:"Projets phares", heading:"Mes réalisations",
+      modalAbout:"À propos du projet", modalStack:"Stack technique", liveDemo:"Démo en ligne"
+    },
+    experience: {
+      tag:"Expérience", heading:"Ce que j'ai réalisé",
+      date:"2023 — Présent", title:"Projets Personnels &amp; Académiques", sub:"Autodidacte · Tanger, Maroc",
+      li1:"Développé et déployé 5+ projets web et mobiles sur toute la stack",
+      li2:"Conçu des interfaces responsives optimisées pour desktop et mobile",
+      li3:"Mis en place des authentifications sécurisées avec OTP, codes PIN et systèmes QR",
+      li4:"Créé des tableaux de bord admin pour la gestion des utilisateurs et les statistiques",
+      li5:"Collaboré sur des projets d'équipe en utilisant Git",
+      li6:"Intégré des backends PHP et MySQL alimentant des frontends dynamiques"
+    },
+    education: {
+      tag:"Formation", heading:"Parcours &amp; formation",
+      e1t:"Technicien Spécialisé en Développement Logiciel", e1s:"Institut CIEL · Tanger, Maroc",
+      e2t:"Certificat TR-YÖS d'entrée universitaire", e2s:"Türkiye",
+      e3t:"Baccalauréat en Sciences Physiques", e3s:"Lycée Ibn Zohr · Tanger, Maroc"
+    },
+    contact: {
+      tag:"Contact", heading:"Travaillons ensemble",
+      sub:"À la recherche d'opportunités de stage au Maroc. Si vous avez besoin d'un développeur opérationnel immédiatement — parlons-en.",
+      formTitle:"Envoyer un message", formSub:"Réponse habituelle sous 24 heures · Sécurisé &amp; privé",
+      labelName:"Nom", labelEmail:"Email", labelSubject:"Sujet", labelMessage:"Message",
+      phName:"Votre nom complet", phSubject:"Quel est le sujet ?", phMessage:"Parlez-moi de votre projet ou opportunité...",
+      fnote:"Votre message arrive directement dans ma boîte mail", sendBtn:"Envoyer",
+      toastDownload:"Téléchargement du CV…", toastSent:"Message envoyé — je répondrai sous 24h ✓", toastSendFail:"Envoi échoué — envoyez-moi directement un email",
+      toastWait:"Veuillez patienter avant d'envoyer à nouveau",
+      errName:"Veuillez entrer votre nom", errEmail:"Veuillez entrer une adresse email valide", errSubject:"Veuillez ajouter un sujet", errMsg:"Message trop court — dites-en plus !"
+    },
+    footer: { sub:"Tanger, Maroc &middot; Développeur Full Stack" }
+  }
+};
+
+let currentLang = localStorage.getItem('_lang') || 'en';
+
+function _T() { return translations[currentLang]; }
+
+function setLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('_lang', lang);
+  document.documentElement.lang = lang;
+  document.title = lang === 'fr' ? 'Mohcine Laghmich — Développeur Full Stack' : 'Mohcine Laghmich — Full Stack Developer';
+  const T = _T();
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const v = el.dataset.i18n.split('.').reduce((o,k)=>o&&o[k],T);
+    if (v !== undefined) el.innerHTML = v;
+  });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+    const v = el.dataset.i18nPh.split('.').reduce((o,k)=>o&&o[k],T);
+    if (v !== undefined) el.placeholder = v;
+  });
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+  document.querySelectorAll('.sk-card').forEach((card,i) => {
+    const cat = card.querySelector('.sk-cat');
+    if (cat && skills[i]) cat.textContent = (T.skills.cats[skills[i].c] || skills[i].c);
+  });
+  document.querySelectorAll('.pcard').forEach((card,i) => {
+    const d = card.querySelector('.pcard-desc');
+    if (d && projects[i]) d.textContent = (projects[i][lang] || projects[i].en).desc;
+  });
+  if (currentWords !== T.hero.words) {
+    currentWords = T.hero.words;
+    clearTimeout(typeTimer); wi = 0; ci = 0; del = false;
+    if (tp) { tp.textContent = ''; typeTimer = setTimeout(typeN, 400); }
+  }
+}
+
 
 /* ═══════════════════════════════════════════
    EMAILJS — credentials loaded from env
@@ -1732,15 +1908,15 @@ for (let i = 0; i < particleCount; i++) {
 
 /* ─── TYPING ANIMATION ─── */
 const tp = document.getElementById('typer');
-const words = ['Full Stack Developer','React Native Developer','PHP & MySQL Developer','Building real products'];
-let wi = 0, ci = 0, del = false;
+let currentWords = translations[currentLang].hero.words;
+let wi = 0, ci = 0, del = false, typeTimer;
 function typeN() {
-  const w = words[wi];
-  if (!del) { tp.textContent = w.slice(0, ++ci); if (ci === w.length) { del = true; setTimeout(typeN, 1900); return; } }
-  else { tp.textContent = w.slice(0, --ci); if (ci === 0) { del = false; wi = (wi + 1) % words.length; setTimeout(typeN, 380); return; } }
-  setTimeout(typeN, del ? 45 : 82);
+  const w = currentWords[wi];
+  if (!del) { tp.textContent = w.slice(0, ++ci); if (ci === w.length) { del = true; typeTimer = setTimeout(typeN, 1900); return; } }
+  else { tp.textContent = w.slice(0, --ci); if (ci === 0) { del = false; wi = (wi + 1) % currentWords.length; typeTimer = setTimeout(typeN, 380); return; } }
+  typeTimer = setTimeout(typeN, del ? 45 : 82);
 }
-setTimeout(typeN, 1000);
+typeTimer = setTimeout(typeN, 1000);
 
 /* ─── REVEAL ON SCROLL ─── */
 const rvO = new IntersectionObserver(es => { es.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); }); }, { threshold: .07 });
@@ -1759,7 +1935,7 @@ document.querySelectorAll('[data-cnt]').forEach(el => cO.observe(el));
 
 /* ─── CV DOWNLOAD ─── */
 document.getElementById('cvbtn').addEventListener('click', () => {
-  showToast('Downloading CV…', 'success');
+  showToast(_T().contact.toastDownload, 'success');
 });
 
 /* ─── EMAIL LINK ─── */
@@ -1785,55 +1961,57 @@ const sg = document.getElementById('skgrid');
 skills.forEach((s, i) => {
   const el = document.createElement('div');
   el.className = 'sk-card rv'; el.style.transitionDelay = (i * .045) + 's';
-  el.innerHTML = `<div class="sk-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">${s.svg}</svg></div><div class="sk-name">${s.n}</div><div class="sk-cat">${s.c}</div>`;
+  const _cat = (_T().skills.cats[s.c] || s.c);
+  el.innerHTML = `<div class="sk-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">${s.svg}</svg></div><div class="sk-name">${s.n}</div><div class="sk-cat">${_cat}</div>`;
   sg.appendChild(el); rvO.observe(el);
 });
 
 /* ─── PROJECTS ─── */
 const projects = [
   { name:'TangierCart', url:'tangiercart.vercel.app', gh:'github.com/laghmichmohcine6-coder',
-    desc:'Mobile & web app for managing digital cards — OTP login, PIN auth, admin dashboard, QR scanning.',
-    full:'A full-stack system for managing digital identity cards. Built with React Native and PHP/MySQL. Features OTP verification, PIN authentication, an admin dashboard for user management, and a QR code scanning system.',
+    en:{desc:'Mobile & web app for managing digital cards — OTP login, PIN auth, admin dashboard, QR scanning.',full:'A full-stack system for managing digital identity cards. Built with React Native and PHP/MySQL. Features OTP verification, PIN authentication, an admin dashboard for user management, and a QR code scanning system.'},
+    fr:{desc:'Application mobile & web pour gérer des cartes numériques — connexion OTP, PIN, tableau de bord admin, scan QR.',full:"Un système full-stack pour gérer des cartes d'identité numériques. Développé avec React Native et PHP/MySQL. Inclut la vérification OTP, l'authentification PIN, un tableau de bord admin et un système de scan QR."},
     tags:['React Native','PHP','MySQL','JavaScript','QR Code'],
     img:'img/TangierCart.PNG', imgCls:'pimg-tangiercart' },
   { name:'GYMCOO', url:'gymcoo.vercel.app', gh:'github.com/laghmichmohcine6-coder',
-    desc:'Fitness platform with user management, profiles, and PHP/MySQL backend for dynamic data.',
-    full:'A responsive fitness web platform with a complete user lifecycle — sign up, login, and profile editing. Connects to a PHP and MySQL backend for real-time dynamic data.',
+    en:{desc:'Fitness platform with user management, profiles, and PHP/MySQL backend for dynamic data.',full:'A responsive fitness web platform with a complete user lifecycle — sign up, login, and profile editing. Connects to a PHP and MySQL backend for real-time dynamic data.'},
+    fr:{desc:'Plateforme fitness avec gestion des utilisateurs, profils et backend PHP/MySQL pour des données dynamiques.',full:"Une plateforme web fitness responsive avec un cycle utilisateur complet — inscription, connexion et modification du profil. Connectée à un backend PHP et MySQL pour des données dynamiques en temps réel."},
     tags:['HTML','CSS','JavaScript','PHP','MySQL'],
     img:'img/GYMCOO.PNG', imgCls:'pimg-gymcoo' },
   { name:'StudySphere', url:'studify-azure.vercel.app', gh:'github.com/laghmichmohcine6-coder',
-    desc:'Collaborative student platform — study groups, resource sharing, built in a team with Git.',
-    full:'A collaborative platform for students to form study groups, share resources, and manage events. Built in a team environment using Git for version control and collaborative workflows.',
+    en:{desc:'Collaborative student platform — study groups, resource sharing, built in a team with Git.',full:'A collaborative platform for students to form study groups, share resources, and manage events. Built in a team environment using Git for version control and collaborative workflows.'},
+    fr:{desc:"Plateforme collaborative pour étudiants — groupes d'étude, partage de ressources, développée en équipe avec Git.",full:"Une plateforme collaborative pour les étudiants pour former des groupes d'étude, partager des ressources et gérer des événements. Développée en équipe avec Git pour le contrôle de version."},
     tags:['HTML','CSS','JavaScript','Git','Team'],
     img:'img/studify.PNG', imgCls:'pimg-studysphere' },
   { name:'SkillCrafter', url:'skill-crafter-omega.vercel.app', gh:'github.com/laghmichmohcine6-coder',
-    desc:'Modern frontend project with polished UI design and smooth JavaScript interactions.',
-    full:'A polished frontend application showcasing clean UI design principles, animated components, and a refined user experience across all screen sizes.',
+    en:{desc:'Modern frontend project with polished UI design and smooth JavaScript interactions.',full:'A polished frontend application showcasing clean UI design principles, animated components, and a refined user experience across all screen sizes.'},
+    fr:{desc:"Projet frontend moderne avec un design UI soigné et des interactions JavaScript fluides.",full:"Une application frontend soignée mettant en valeur des principes de design UI propres, des composants animés et une expérience utilisateur raffinée sur toutes les tailles d'écran."},
     tags:['JavaScript','CSS','React','UI Design'],
     img:'img/skillcrafters.PNG', imgCls:'pimg-skillcrafter' },
   { name:'TéléTravail', url:'teletravail-final.vercel.app', gh:'github.com/laghmichmohcine6-coder',
-    desc:'Remote work platform for managing telework requests, schedules, and team coordination.',
-    full:'A telework management platform enabling employees to submit requests, view schedules, and coordinate with teams. Focused on usability and workflow efficiency.',
+    en:{desc:'Remote work platform for managing telework requests, schedules, and team coordination.',full:'A telework management platform enabling employees to submit requests, view schedules, and coordinate with teams. Focused on usability and workflow efficiency.'},
+    fr:{desc:"Plateforme de télétravail pour gérer les demandes, les plannings et la coordination d'équipe.",full:"Une plateforme de gestion du télétravail permettant aux employés de soumettre des demandes, consulter les plannings et coordonner avec les équipes. Axée sur la facilité d'utilisation et l'efficacité des flux de travail."},
     tags:['HTML','CSS','JavaScript','PHP'],
     img:'img/Teletravail.PNG', imgCls:'pimg-teletravail' },
   { name:'Tangier Furnish', url:'tangier-furnish-v1.vercel.app', gh:'github.com/laghmichmohcine6-coder',
-    desc:'E-commerce furniture showcase with product listings, filtering, and modern shopping UI.',
-    full:'An e-commerce furniture showcase for the Tangier market featuring product listings, category filtering, clean shopping cards, and smooth hover interactions.',
+    en:{desc:'E-commerce furniture showcase with product listings, filtering, and modern shopping UI.',full:'An e-commerce furniture showcase for the Tangier market featuring product listings, category filtering, clean shopping cards, and smooth hover interactions.'},
+    fr:{desc:"Vitrine e-commerce de meubles avec listes de produits, filtrage et interface shopping moderne.",full:"Une vitrine e-commerce de meubles pour le marché de Tanger avec des listes de produits, un filtrage par catégorie, des cartes shopping soignées et des interactions hover fluides."},
     tags:['HTML','CSS','JavaScript','E-commerce'],
     img:'img/Tangierfurnish.PNG', imgCls:'pimg-tangierfurnish' },
 ];
 const pgrid = document.getElementById('pgrid');
 
 function openModal(p) {
+  const _mp = (p[currentLang] || p.en);
   document.getElementById('mtitle').textContent = p.name;
   const mprev = document.getElementById('mprev');
   mprev.style.background = '';
   mprev.innerHTML = `<img src="${p.img}" alt="${p.name} screenshot" style="width:100%;height:100%;object-fit:cover;display:block">`;
-  document.getElementById('mdesc').textContent = p.full;
+  document.getElementById('mdesc').textContent = _mp.full;
   document.getElementById('mtags').innerHTML = p.tags.map(t => `<span class="ptag">${t}</span>`).join('');
   const mBtnStyle = isMobile ? 'font-size:13px;padding:13px 20px;width:100%;justify-content:center;min-height:48px' : 'font-size:12px;padding:10px 20px';
   document.getElementById('macts').innerHTML = `
-    <a href="https://${p.url}" target="_blank" rel="noopener" class="btn-black" style="${mBtnStyle}">Live demo</a>
+    <a href="https://${p.url}" target="_blank" rel="noopener" class="btn-black" style="${mBtnStyle}">${_T().projects.liveDemo}</a>
     <a href="https://${p.gh}" target="_blank" rel="noopener" class="btn-ghost" style="${mBtnStyle}">GitHub</a>`;
   document.getElementById('modal').classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -1850,6 +2028,7 @@ projects.forEach((p, i) => {
   el.setAttribute('role','button');
   el.setAttribute('aria-label', `View ${p.name} project details`);
   const isFirst = i === 0;
+  const _pd = (p[currentLang] || p.en);
   el.innerHTML = `
     <div class="pcard-prev">
       <img class="pcard-img ${p.imgCls}" src="${p.img}" alt="${p.name} screenshot" loading="${isFirst ? 'eager' : 'lazy'}"${isFirst ? ' fetchpriority="high"' : ''} decoding="async" draggable="false">
@@ -1862,7 +2041,7 @@ projects.forEach((p, i) => {
           <a href="https://${p.gh}" target="_blank" rel="noopener" class="pb-btn" title="GitHub" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>
         </div>
       </div>
-      <p class="pcard-desc">${p.desc}</p>
+      <p class="pcard-desc">${_pd.desc}</p>
       <div class="ptags">${p.tags.slice(0,4).map(t=>`<span class="ptag">${t}</span>`).join('')}</div>
     </div>`;
   el.addEventListener('click', () => openModal(p));
@@ -1914,18 +2093,18 @@ document.getElementById('cform').addEventListener('submit', async e => {
 
   // Validation
   if (!name || name.length < 2)
-    { showToast('Please enter your name', 'error'); form.from_name.focus(); return; }
+    { showToast(_T().contact.errName, 'error'); form.from_name.focus(); return; }
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
-    { showToast('Please enter a valid email', 'error'); form.from_email.focus(); return; }
+    { showToast(_T().contact.errEmail, 'error'); form.from_email.focus(); return; }
   if (!subject || subject.length < 3)
-    { showToast('Please add a subject', 'error'); form.subject.focus(); return; }
+    { showToast(_T().contact.errSubject, 'error'); form.subject.focus(); return; }
   if (!msg || msg.length < 10)
-    { showToast('Message too short — say more!', 'error'); form.message.focus(); return; }
+    { showToast(_T().contact.errMsg, 'error'); form.message.focus(); return; }
 
   // Rate limiting
   const last = parseInt(sessionStorage.getItem('_ls') || '0');
   if (Date.now() - last < 60000)
-    { showToast('Please wait a moment before sending again', 'error'); return; }
+    { showToast(_T().contact.toastWait, 'error'); return; }
 
   // Sending state
   const btn = document.getElementById('sbtn'), ico = document.getElementById('sico');
@@ -1943,16 +2122,22 @@ document.getElementById('cform').addEventListener('submit', async e => {
     });
     sessionStorage.setItem('_ls', Date.now());
     form.reset();
-    showToast("Message sent — I'll reply within 24h ✓", 'success');
+    showToast(_T().contact.toastSent, 'success');
   } catch (err) {
     console.error('EmailJS:', err);
-    showToast('Could not send — please try emailing directly', 'error');
+    showToast(_T().contact.toastSendFail, 'error');
   } finally {
     btn.disabled = false;
     ico.classList.remove('spin');
     ico.innerHTML = '<line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>';
   }
 });
+
+/* ─── LANGUAGE INIT ─── */
+document.querySelectorAll('.lang-btn').forEach(btn => {
+  btn.addEventListener('click', () => setLang(btn.dataset.lang));
+});
+if (currentLang !== 'en') setLang(currentLang);
 
 })();
 </script>
